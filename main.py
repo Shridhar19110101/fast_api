@@ -58,18 +58,15 @@ def pipeline(domain):
                 return "yes",provider[1]
     return "no",""
 
+
 @app.get("/")
-async def root():
-    return {"message": "Welcome to my bookstore app!"}
-
-# @app.get("/")
-# async def main(domain: str):
-#     return pipeline(domain)
+async def main(domain: str):
+    return pipeline(domain)
 
 
-# @app.post("/")
-# async def root(domain: str):
-#     return await main(domain)
+@app.post("/")
+async def root(domain: str):
+    return await main(domain)
 
 
    # to run the app, run uvicorn main:app --reload
