@@ -69,8 +69,6 @@ app = FastAPI()
 async def root(domain: str):
     return await main(domain)
 
-if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
 
    # to run the app, run uvicorn main:app --reload
    # then, make a post request to http://localhost:8000/ with a body of {"domain": "getlyne.com"}
