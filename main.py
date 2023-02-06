@@ -11,7 +11,7 @@ from selenium.webdriver.chrome.options import Options
 
 
 
-app = FastAPI()
+app = FastAPI(timeout=600)
 
 def pipeline(domain):
     chat_providers=[("js.driftt.com/","drift"),(".intercom.io/messenger/web/","intercom"),(".livechatinc.com/","LiveChat"),(".salesforceliveagent.com//chat/","Salesforce"),(".hubspot.com/livechat","hubspot"),(".hubspot.com/conversations-visitor/","hubspot"),
