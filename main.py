@@ -18,7 +18,7 @@ def pipeline(domain):
     (".zohocdn.com/salesiq/","zohodesk"),(".zohocdn.com/zohoim/imchat","zohodesk"),("ladesk.com/scripts/","liveagent"),("connect.podium.com/styles","podium"),(".widget.insent.ai","zoominfo"),(".terminus.services/","Terminus"),
     (".qualified.com/","Qualified"),(".tidiochat.com/","Tidio"),("static.zdassets.com/ekr/","Zendesk"),(".olark.com/","Olark"),(".liveperson.net/","LivePerson"),(".freshbots.ai/","Freshwork"),(".artibot.ai/","artibot"),(".groovehq.com/","Groove")]
 
-    url=f"https://www.{domain}"
+    url=f"https://{domain}"
     desired_capabilities = DesiredCapabilities.CHROME
     desired_capabilities["goog:loggingPrefs"] = {"performance": "ALL"}
     
