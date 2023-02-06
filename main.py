@@ -9,11 +9,6 @@ from fastapi import FastAPI
 import uvicorn
 from selenium.webdriver.chrome.options import Options
 
-chrome_options = Options()
-chrome_options.add_argument('--no-sandbox')
-chrome_options.add_argument('--headless')
-chrome_options.add_argument('--disable-dev-shm-usage')
-driver = webdriver.Chrome(service=Service('/usr/bin/chromedriver'),options=chrome_options)
 
 
 app = FastAPI()
@@ -27,7 +22,13 @@ def pipeline(domain):
     desired_capabilities = DesiredCapabilities.CHROME
     desired_capabilities["goog:loggingPrefs"] = {"performance": "ALL"}
     
-    driver =webdriver.Chrome(service=Service(ChromeDriverManager().install()),desired_capabilities=desired_capabilities)
+    chrome_options = Options()
+    chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--disable-dev-shm-usage')
+    driver = webdriver.Chrome(service=Service('/usr/bin/chromedriver'),options=chrome_options,desired_capabilities=desired_capabilities)
+    
+#     driver =webdriver.Chrome(service=Service(ChromeDriverManager().install()),desired_capabilities=desired_capabilities)
     
     try:
         driver.get(url)
