@@ -59,15 +59,17 @@ def pipeline(domain):
     return "no",""
 
 @app.get("/")
-async def main(domain: str):
-    return pipeline(domain)
+async def root():
+    return {"message": "Welcome to my bookstore app!"}
+
+# @app.get("/")
+# async def main(domain: str):
+#     return pipeline(domain)
 
 
-app = FastAPI()
-
-@app.post("/")
-async def root(domain: str):
-    return await main(domain)
+# @app.post("/")
+# async def root(domain: str):
+#     return await main(domain)
 
 
    # to run the app, run uvicorn main:app --reload
