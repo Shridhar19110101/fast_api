@@ -18,7 +18,7 @@ def pipeline(domain):
     (".zohocdn.com/salesiq/","zohodesk"),(".zohocdn.com/zohoim/imchat","zohodesk"),("ladesk.com/scripts/","liveagent"),("connect.podium.com/styles","podium"),(".widget.insent.ai","zoominfo"),(".terminus.services/","Terminus"),
     (".qualified.com/","Qualified"),(".tidiochat.com/","Tidio"),("static.zdassets.com/ekr/","Zendesk"),(".olark.com/","Olark"),(".liveperson.net/","LivePerson"),(".freshbots.ai/","Freshwork"),(".artibot.ai/","artibot"),(".groovehq.com/","Groove")]
 
-    url=f"https://{domain}"
+    url=domain
     desired_capabilities = DesiredCapabilities.CHROME
     desired_capabilities["goog:loggingPrefs"] = {"performance": "ALL"}
     
@@ -26,9 +26,9 @@ def pipeline(domain):
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--headless')
     chrome_options.add_argument('--disable-dev-shm-usage')
-    driver = webdriver.Chrome(service=Service('/usr/bin/chromedriver'),options=chrome_options,desired_capabilities=desired_capabilities)
+#     driver = webdriver.Chrome(service=Service('/usr/bin/chromedriver'),options=chrome_options,desired_capabilities=desired_capabilities)
     
-#     driver =webdriver.Chrome(service=Service(ChromeDriverManager().install()),desired_capabilities=desired_capabilities)
+    driver =webdriver.Chrome(service=Service(ChromeDriverManager().install()),options=chrome_options,desired_capabilities=desired_capabilities)
     
     try:
         driver.get(url)
